@@ -6,7 +6,8 @@ import java.util.List;
 public class makeArrayConsecutive {
 	public static void main(String[] args) {
 		int[] test = { 2, 3, 5, 8, 1 };
-
+		//467 : ans = 3
+		
 		System.out.println(makeArrayConsecutive2(test));
 
 	}
@@ -14,7 +15,6 @@ public class makeArrayConsecutive {
 	public static int makeArrayConsecutive2(int[] statues) {
 		int lowest = 1000;
 		int largest = 0;
-		int count = 0;
 		for (int i = 0; i < statues.length; i++) {
 			if (statues[i] < lowest) {
 				lowest = statues[i];
@@ -29,19 +29,23 @@ public class makeArrayConsecutive {
 
 		List<Integer> numbers = new ArrayList<>();
 		System.out.println("Before: " + numbers);
-		for (int i = lowest; i < largest; i++) {
-			for (int x = 0; x < statues.length; x++) {
-				if (statues[x] != i) {
-					break; 
-				}	
-				numbers.add(statues[x]); 
-			}
-			System.out.println(numbers);
+		
+		for (int i = 0; i < statues.length; i++) {
+			numbers.add(statues[i]); 
 		}
 		
-		count = numbers.size();
+		List<Integer> count1 = new ArrayList<>();
+		
+		for (int i = lowest; i < largest; i++) {
+				if (!numbers.contains(i)) {
+					count1.add(i); 
+				}	
+			
+			System.out.println(count1);
+		}
+		
 
-		return count;
+		return count1.size();
 	}
 
 }
