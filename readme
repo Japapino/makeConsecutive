@@ -1,0 +1,3 @@
+This project is a practice space for a kata found on CodeFights. 
+
+Make array consecutive takes in an array of integers and returns the number of missing values when the array is sorted by value. 
